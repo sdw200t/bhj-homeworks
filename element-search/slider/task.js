@@ -4,7 +4,7 @@ const arr = Array.from(sliderItem)
 
 const sliderArrowNext = document.querySelector(".slider__arrow_next")
 sliderArrowNext.onclick = () => {
-    let currentItem = arr.findIndex(item => item == document.querySelector(".slider__item_active"))
+    let currentItem = arr.findIndex(item => item.classList.contains("slider__item_active"))
     const lastItem = currentItem
     if (currentItem == arr.length-1) {
         currentItem = 0
@@ -17,7 +17,7 @@ sliderArrowNext.onclick = () => {
 
 const sliderArrowPrev = document.querySelector(".slider__arrow_prev")
 sliderArrowPrev.onclick = () => {
-    let currentItem = arr.findIndex(item => item == document.querySelector(".slider__item_active"))
+    let currentItem = arr.findIndex(item => item.classList.contains("slider__item_active"))
     const lastItem = currentItem
     if (currentItem == 0) {
         currentItem = arr.length-1
