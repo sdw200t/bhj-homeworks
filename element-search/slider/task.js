@@ -1,30 +1,31 @@
-let currentitem = 0
-const slider__item = document.querySelectorAll('.slider__item')
-const arr = Array.from(slider__item)
-//console.log(arr)
+//let currentItem = 0
+const sliderItem = document.querySelectorAll(".slider__item")
+const arr = Array.from(sliderItem)
 
-const slider__arrow_next = document.querySelector('.slider__arrow_next')
-slider__arrow_next.onclick = () => {
-    const lastitem = currentitem
-    if (currentitem == arr.length-1) {
-        currentitem = 0
+const sliderArrowNext = document.querySelector(".slider__arrow_next")
+sliderArrowNext.onclick = () => {
+    let currentItem = arr.findIndex(item => item == document.querySelector(".slider__item_active"))
+    const lastItem = currentItem
+    if (currentItem == arr.length-1) {
+        currentItem = 0
     } else {
-        currentitem++
+        currentItem++
     }
-    arr[lastitem].classList = 'slider__item'
-    arr[currentitem].classList = 'slider__item slider__item_active'
+    arr[lastItem].classList = "slider__item"
+    arr[currentItem].classList = "slider__item slider__item_active"
 }
 
-const slider__arrow_prev = document.querySelector('.slider__arrow_prev')
-slider__arrow_prev.onclick = () => {
-    const lastitem = currentitem
-    if (currentitem == 0) {
-        currentitem = arr.length-1
+const sliderArrowPrev = document.querySelector(".slider__arrow_prev")
+sliderArrowPrev.onclick = () => {
+    let currentItem = arr.findIndex(item => item == document.querySelector(".slider__item_active"))
+    const lastItem = currentItem
+    if (currentItem == 0) {
+        currentItem = arr.length-1
     } else {
-        currentitem--
+        currentItem--
     }
-    arr[lastitem].classList = 'slider__item'
-    arr[currentitem].classList = 'slider__item slider__item_active'    
+    arr[lastItem].classList = "slider__item"
+    arr[currentItem].classList = "slider__item slider__item_active"    
 }
 
 
