@@ -36,3 +36,12 @@ window.addEventListener('scroll', function() {
 
 // А также запустим функцию сразу. А то вдруг, элемент изначально видно
 elements.forEach((element) => {Visible (element)})
+
+
+//const { innerHeight } = window;
+//const { top } = reveal.getBoundingClientRect();
+//if (top < innerHeight && top > 0) {
+//  reveal.classList.add("reveal_active");
+//} else {
+//  reveal.classList.remove("reveal_active");
+//}

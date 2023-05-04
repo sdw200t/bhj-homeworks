@@ -15,3 +15,10 @@ elements.forEach(element => {
         return false
     }
 })
+
+//const size = event.target.dataset.size;
+//if (size) {
+//  reader.className = `book__content book_fs-${size}`;
+//} else {
+//  reader.className = "book__content";
+//}
