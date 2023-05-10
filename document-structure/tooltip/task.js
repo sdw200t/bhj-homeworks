@@ -1,17 +1,22 @@
 const ttip = document.querySelectorAll(".has-tooltip")
-const arr = Array.from(ttip)
 arrHelp = []
 ttip.forEach(elem => {
-    let help = document.createElement("div")
-    help.className = 'tooltip'    
-    help.innerText = elem.title  
-    elem.appendChild(help)
-    arrHelp.push(help)  
     elem.onclick = () => {
-        if (arrHelp[arr.indexOf(elem)].classList.contains('tooltip_active')){
-            arrHelp[arr.indexOf(elem)].classList = 'tooltip'
+        const rect = elem.getBoundingClientRect()
+        let help = arrHelp.find(el => el.innerText == elem.title)
+        if (help == undefined) {
+            help = document.createElement("div")
+            help.classList.add('tooltip')    
+            help.innerText = elem.title  
+            elem.insertAdjacentElement("afterend", help)
+            help.style.left = `${rect.left}px`
+            help.style.top = `${rect.top + 20}px`
+            arrHelp.push(help) 
+        }     
+        if (help.classList.contains('tooltip_active')){
+            help.classList.remove('tooltip_active')
         } else {
-            arrHelp[arr.indexOf(elem)].classList = 'tooltip_active'
+            help.classList.add('tooltip_active')
         }
         return false
     }
