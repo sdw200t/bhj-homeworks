@@ -17,7 +17,7 @@ document.forms.signin__form.addEventListener('submit', (e) => {
             if (json.success == true) {
                 let userid = document.querySelector('#user_id')
                 userid.textContent = json.user_id
-                let welcome  = document.querySelector('.welcome ')
+                let welcome = document.querySelector('.welcome ')
                 welcome.classList.add('welcome_active')
                 localStorage.setItem('auth', json.user_id)
             } else {
